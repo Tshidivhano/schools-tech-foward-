@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Outreach List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Define a simple color theme */
+        :root {
+            --primary-color: #4f46e5; /* Indigo */
+            --primary-hover: #4338ca;
+            --secondary-color: #f3f4f6; /* Light Gray */
+            --header-bg: #e0e7ff; /* Lighter Indigo */
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --border-color: #d1d5db;
+            --row-hover: #eef2ff; /* Indigo tint on hover */
+        }
+
+        /* Apply Inter font globally */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+        }
+
+        /* Table styling */
+        th, td {
+            padding: 14px 18px; /* Increased padding */
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle; /* Align content vertically */
+        }
+        th {
+            background-color: var(--header-bg);
+            font-weight: 700; /* Bolder header */
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.8rem; /* Slightly smaller header font */
+        }
+        /* Striped rows */
+        tbody tr:nth-child(odd) {
+            background-color: #fff;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f9fafb; /* Very light gray for even rows */
+        }
+        tbody tr:hover {
+            background-color: var(--row-hover); /* Use theme color for hover */
+        }
+
+        /* Enhanced Button Styling */
+        .btn-email {
+            padding: 10px 20px; /* Larger button padding */
+            border: none;
+            border-radius: 8px;
+            background-image: linear-gradient(to right, var(--primary-color), #6366f1); /* Gradient */
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600; /* Bolder button text */
+            cursor: pointer;
+            transition: all 0.3s ease; /* Smoother transition */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-flex; /* Align icon and text */
+            align-items: center;
+            gap: 8px; /* Space between icon and text */
+        }
+        .btn-email:hover {
+            background-image: linear-gradient(to right, var(--primary-hover), var(--primary-color));
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px); /* Slight lift on hover */
+        }
+        .btn-email svg {
+             width: 16px;
+             height: 16px;
+        }
+
+        /* Container and Card Styling */
+        .content-wrapper {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 16px; /* More rounded corners */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* Softer, larger shadow */
+            margin-bottom: 2rem;
+        }
+        .table-container {
+            max-width: 100%;
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            background-color: #fff; /* Ensure table container has white background */
+        }
+        h1 {
+            color: var(--primary-color); /* Use theme color for heading */
+            font-weight: 700;
+        }
+        .header-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 12px;
+            color: var(--primary-color);
+        }
+        .description-text {
+             color: var(--text-light);
+             line-height: 1.6; /* Improve readability */
+        }
+
+        /* Link styling */
+        a.website-link {
+            color: var(--primary-color);
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        a.website-link:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <div class="container mx-auto max-w-6xl">
+
+        <div class="content-wrapper flex items-center mb-8">
+             <svg class="header-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
+             </svg>
+            <div>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800">School Outreach List</h1>
+                <p class="mt-2 description-text">
+                    Manage and track outreach efforts for school activations.
+                    <strong class="text-red-600 font-medium">Please verify contact details before sending emails.</strong>
+                    Click "Draft Email" to open your default email client.
+                </p>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th scope="col">School Name</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Tel</th>
+                        <th scope="col">Website</th>
+                        <th scope="col">Contact Person</th>
+                        <th scope="col">Contact Email</th>
+                        <th scope="col">Outcome</th>
+                        <th scope="col">Next Steps</th>
+                    </tr>
+                </thead>
+                <tbody id="school-table-body" class="text-sm">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // School data (ensure this is accurate)
+        const schools = [
+             { name: "Westerford High School", location: "Newlands", tel: "021 671-3581", website: "https://westerford.co.za", contactPerson: "Secretary", contactEmail: "marinda.s1@curro.co.za", outcome: "Email required explaining outreach.", nextSteps: "Send email" },
+            { name: "Curro Durbanville", location: "Sonstraal Heights, Durbanville", tel: "021 975 6377", website: "https://curro.co.za", contactPerson: "N/A", contactEmail: "N/A", outcome: "N/A", nextSteps: "N/A" },
+            { name: "Curro Rosen Castle Tyger Valley", location: "Rosenpark / Bellville", tel: "021 914 2690", website: "https://curro.co.za", contactPerson: "Reception", contactEmail: "michelle.d2@curro.co.za", outcome: "Email needs to be sent explaining outreach.", nextSteps: "Send email" },
+            { name: "Curro Castle Brackenfell", location: "Brackenfell", tel: "087 285 4706", website: "https://curro.co.za", contactPerson: "N/A", contactEmail: "N/A", outcome: "N/A", nextSteps: "N/A" },
+            { name: "Blouberg International School", location: "Blouberg", tel: "021 557 9071", website: "https://blouberginternational.co.za", contactPerson: "Reception / Mr. Harrison", contactEmail: "contact.blouberg@iesmail.com", outcome: "Email needs to be sent explaining outreach.", nextSteps: "Send email" },
+            { name: "Curro Castle Sitari", location: "Sitari Country Estate, SW", tel: "087 285 2140", website: "https://curro.co.za", contactPerson: "Principal (Tania Hynes)", contactEmail: "N/A", outcome: "N/A", nextSteps: "N/A" },
+            { name: "Herzlia High School", location: "Highlands Estate", tel: "021 464 3300", website: "https://herzlia.com", contactPerson: "N/A", contactEmail: "N/A", outcome: "N/A", nextSteps: "N/A" },
+            { name: "International School of Cape Town", location: "Wynberg", tel: "021 761 6207", website: "https://isct.co.za", contactPerson: "N/A", contactEmail: "N/A", outcome: "N/A", nextSteps: "N/A" },
+            { name: "Bridge House School", location: "Franschhoek", tel: "021 874 8100", website: "https://bridgehouse.org.za", contactPerson: "N/A", contactEmail: "N/A", outcome: "N/A", nextSteps: "N/A" },
+            { name: "St. Cyprian's School", location: "Oranjezicht", tel: "021 461 1090", website: "https://stcyprians.co.za", contactPerson: "N/A", contactEmail: "N/A", outcome: "N/A", nextSteps: "N/A" }
+        ];
+
+        const tableBody = document.getElementById('school-table-body');
+
+        // Function to generate the email body template
+        function generateEmailBody(schoolName, contactPerson) {
+            // --- IMPORTANT: CUSTOMIZE THIS TEMPLATE ---
+            const yourName = "[Your Name]"; // Replace with your name
+            const yourOrganization = "[Your Organization Name]"; // Replace with your org name
+            const activationDetails = "[Briefly describe your organization and the purpose of the activation. What value does it bring to the students/school?]"; // Customize this
+            const benefits = "[Mention benefits for students/school]"; // Customize this
+            const yourTitle = "[Your Title]"; // Replace with your title
+            const yourContactInfo = "[Your Contact Information]"; // Replace with your contact info
+            // --- END OF CUSTOMIZATION SECTION ---
+
+            const greeting = (contactPerson && contactPerson !== 'N/A' && !['Secretary', 'Reception'].includes(contactPerson))
+                             ? `Dear ${contactPerson},`
+                             : `Dear School Administrator,`;
+
+            const body = `${greeting}\n\nMy name is ${yourName} from ${yourOrganization}. We are reaching out to explore the possibility of hosting an engaging activation event at ${schoolName}.\n\n${activationDetails}\n\nWe believe this would be a fantastic opportunity for your students to ${benefits}. We are flexible and happy to tailor the activation to fit your school's schedule and specific needs.\n\nWould you be available for a brief call next week to discuss this further?\n\nThank you for your time and consideration.\n\nSincerely,\n\n${yourName}\n${yourTitle}\n${yourOrganization}\n${yourContactInfo}`;
+
+            return encodeURIComponent(body.trim()); // Ensure proper encoding
+        }
+
+        // Function to create and open the mailto link
+        function draftEmail(school) {
+            if (!school.contactEmail || school.contactEmail === 'N/A') {
+                // Use a more styled notification if possible in a real app, alert is basic
+                alert('No contact email available for this school.');
+                return;
+            }
+
+            // --- CUSTOMIZE SUBJECT ---
+            const subject = encodeURIComponent(`School Activation Proposal - ${yourOrganization}`); // Use variable defined above
+            // --- END CUSTOMIZATION ---
+
+            const body = generateEmailBody(school.name, school.contactPerson);
+            const mailtoLink = `mailto:${school.contactEmail}?subject=${subject}&body=${body}`;
+
+            // Attempt to open the mailto link
+            try {
+                 window.location.href = mailtoLink;
+            } catch (e) {
+                 console.error("Failed to open mailto link:", e);
+                 alert("Could not open email client. Please check browser/OS settings for mailto links.");
+            }
+        }
+
+        // Populate the table
+        schools.forEach(school => {
+            const row = tableBody.insertRow();
+            row.insertCell().textContent = school.name || 'N/A';
+            row.insertCell().textContent = school.location || 'N/A';
+            row.insertCell().textContent = school.tel || 'N/A';
+
+            // Website Link Cell
+            const websiteCell = row.insertCell();
+            if (school.website && school.website !== 'N/A') {
+                const link = document.createElement('a');
+                link.href = school.website.startsWith('http') ? school.website : `https://${school.website}`;
+                link.textContent = school.website.replace(/^https?:\/\//, ''); // Remove http(s):// for display
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.className = 'website-link'; // Apply specific link style
+                websiteCell.appendChild(link);
+            } else {
+                websiteCell.textContent = 'N/A';
+            }
+
+            row.insertCell().textContent = school.contactPerson || 'N/A';
+            row.insertCell().textContent = school.contactEmail || 'N/A';
+            row.insertCell().textContent = school.outcome || 'N/A';
+
+            // Next Steps Cell with Button
+            const nextStepsCell = row.insertCell();
+            const nextStepsText = school.nextSteps || 'N/A';
+            nextStepsCell.appendChild(document.createTextNode(nextStepsText + ' ')); // Add text node
+
+            if (nextStepsText.toLowerCase().includes('send email') && school.contactEmail && school.contactEmail !== 'N/A') {
+                const button = document.createElement('button');
+                // Add Email Icon SVG to button
+                button.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                    </svg>
+                    Draft Email`;
+                button.className = 'btn-email'; // Apply styled button class
+                button.onclick = () => draftEmail(school); // Attach click event
+                nextStepsCell.appendChild(button); // Append button to cell
+            }
+        });
+
+        // Define yourOrganization globally for use in draftEmail subject (ensure it's defined)
+        const yourOrganization = "[Your Organization Name]"; // Replace here too!
+
+    </script>
+
+</body>
+</html>
